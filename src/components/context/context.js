@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { reducer } from "../reducer/reducer";
 export const API = `https://dummyjson.com/products`;
 const AppContext = React.createContext();
@@ -7,8 +7,6 @@ const AppContext = React.createContext();
 
 
 const AppProvider = ({ children }) => {
-  // const [product, setProducts] = useState([]);
-  // const [loading, setIsLoading] = useState(true);
     const initialState = {
       products: [],
       loading: true,
@@ -16,8 +14,6 @@ const AppProvider = ({ children }) => {
     };
     
     const [state, dispatch] = useReducer(reducer, initialState);
-    // const API = `https://dummyjson.com/products`;
-
 
     const getSomeProducts = async (url) => {
 
@@ -29,14 +25,13 @@ const AppProvider = ({ children }) => {
 
             const res = await fetch(url);
             const data = await res.json();
-            // console.log(data);
+            console.log(data);
+
 
             dispatch({
                 type: "DISPLAY_ALL_PRODUCTS",
                 payload: data,
             });
-          
-
         } 
         
         catch (error) {

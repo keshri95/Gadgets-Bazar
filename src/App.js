@@ -1,18 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import Error from "./components/Error";
-import Navabar from "./components/Navabar";
+import Navbar from "./components/Navbar";
+import Navigate from "./components/Navigate";
 import Home from "./components/reducer/Home";
 
 function App() {
   return (
     <>
-      <div>
-        <Navabar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="products/:param" element={<Navigate />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
     </>
   );
 }
