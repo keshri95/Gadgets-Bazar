@@ -10,19 +10,17 @@ const AppProvider = ({ children }) => {
     const initialState = {
       products: [],
       loading: true,
-      images: [],
     };
     
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const getSomeProducts = async (url) => {
-
+// 
       dispatch({
         type: "LOADING",
       })
 
         try {
-
             const res = await fetch(url);
             const data = await res.json();
             console.log(data);
@@ -46,7 +44,7 @@ const AppProvider = ({ children }) => {
     
   return (
     <>
-        <AppContext.Provider value={{...state, dispatch}}>
+        <AppContext.Provider value={{...state, dispatch }}>
             {children}
         </AppContext.Provider>
     </>
