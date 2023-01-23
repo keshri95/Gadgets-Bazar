@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/context";
 import Footer from "../Footer";
 
 const Home = () => {
-  const { products, loading } = useGlobalContext();
+  const { products, isLoading } = useGlobalContext();
+  const [page, setPage] = useState(1);
+    console.log(" home")
+    console.log(products)
 
-  if (loading) {
+  if (isLoading) {
+    console.log("loading home")
     return (
       <>
         <div className="text-center">
@@ -26,7 +31,7 @@ const Home = () => {
       <div className="container">
         <p className="text-center display-6">Welcome to prodcts shopping...</p>
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          {products.map((elem) => {
+          {products.slice(page*10 -10, page*10).map((elem) => {
             const { category, id, thumbnail, price, title, brand } = elem;
             return (
               <Link

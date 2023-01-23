@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="navbar bg-light">
         <div className="container">
           <Link to="/" className="navbar-brand">
-            <p className="d-inline-block align-text-top">Products</p>
+            <p className="d-inline-block align-text-top">Gadgets Bazar</p>
           </Link>
         </div>
       </div>
